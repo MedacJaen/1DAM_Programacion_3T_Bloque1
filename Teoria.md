@@ -1,4 +1,5 @@
-## Programacion avanzada: Excepciones, Depuración y Estructuras de Datos
+## Bloque 1: Programacion avanzada
+## Excepciones, Depuración y Estructuras de Datos
 
 Este bloque de programación avanzada incluye:
 - Excepciones (tema 13)
