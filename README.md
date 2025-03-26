@@ -1,57 +1,32 @@
-# 1DAM_Programacion_3T
+## 1DAM_Programacion_3T - Bloque 1: Programación Avanzada
 
-Este repositorio contiene los **contenidos, teoría y ejercicios** del tercer trimestre de la asignatura de **Programación**.
+Este repositorio contiene los **contenidos, teoría y ejercicios** del bloque 1 del 3er trimestre de la asignatura de **Programación**.
 
-Cada bloque incluye:
+El bloque incluye:
 - Un resumen teórico (`Teoria.md`)
-- Los enunciados de los ejercicios (`Ejercicio1.md`, `Ejercicio2.md`, etc).
-- Espacio para que subas tus soluciones (carpeta `soluciones`)
+- Una carpeta para cada ejercicio con el enunciado del mismo.
+- Deberás subir tus soluciones a la carpeta correspondiente de cada ejercicio según las indicaciones que encontrarás aquí.
 
----
+**📘 Contenidos Bloque 1 – Programación avanzada**
+   - Excepciones (tema 13)
+   - Depuración (tema 15)
+   - Estructuras de datos (`ArrayList`, `HashMap`, etc.) (tema 16)
 
-## 🧱 Bloques del trimestre
+**📌 Instrucciones para el alumno:**
 
-1. **Bloque 1 – Programación avanzada**
-   - Excepciones
-   - Depuración
-   - Estructuras de datos dinámicas (`ArrayList`, `HashMap`, etc.)
-   - Carpeta: [`Bloque1_ProgramacionAvanzada`](./Bloque1_ProgramacionAvanzada)
+- Cuando aceptes la invitación, se clonará automáticamente este repositorio en tu cuenta de Github.
+- Deberás crear una copia local del repositorio con Github Desktop.
+- Podrás modificar el documento de teoría si deseas añadir tus propios apuntes.
+- Conforme vayamos desarrollando los ejercicios en clase, deberás ir haciendo commit para guardar cambios.
+- Antes de irte a casa cada día, asegúrate de hacer un push para que tus cambios se suban a la nube.
+- Al finalizar el bloque, cada carpeta de cada ejercicio debería contener el enunciado y tus soluciones, algo como:
+   - `/Bloque1_ProgramacionAvanzada/Ejercicio1/`
+     - `enunciado.md` (subido por el profesor)
+     - `Main.java`(subido por el alumno)
+     - `Persona.java` (subido por el alumno)
+     - etc.
 
-2. **Bloque 2 – Flujos de información y ficheros**
-   - Flujos de información
-   - Lectura y escritura de ficheros de texto
-   - Carpeta: [`Bloque2_FlujosyFicheros`](./Bloque2_FlujosyFicheros)
+**📌 IMPORTANTE:**
+El profesor puede acceder a tu repositorio y revisar si los ejercicios se han realizado, las fechas y el tiempo de desarrollo de cada uno, etc. Por lo tanto, presta atención a cómo vas desarrollando tu repositorio, puesto que será relevante para tu evaluación.
 
-3. **Bloque 3 – Integración con bases de datos**
-   - Conexión con bases de datos desde Java
-   - Consultas, inserciones, actualizaciones
-   - Bases de datos orientadas a objetos
-   - Carpeta: [`Bloque3_BasesdeDatos`](./Bloque3_BasesdeDatos)
-
-4. **Bloque 4 – Creación de interfaces gráficas**
-   - Java Swing básico
-   - Manejo de eventos
-   - Diseño por código
-   - Carpeta: [`Bloque4_InterfacesGraficas`](./Bloque4_InterfacesGraficas)
-
----
-
-## 📌 Instrucciones para el alumno
-
-- Ve a la carpeta del bloque correspondiente.
-- Encontrarás un fichero con la teoría y una carpeta para cada ejercicio.
-- En la carpeta de cada ejercicio encontrarás un archivo `enunciado.md`.
-- Lee el enunciado y añade ahí mismo tus archivos `.java` de la solución del ejercicio.
-
-Ejemplo:
-- `/Bloque1_ProgramacionAvanzada/Ejercicio1/`
-  - `enunciado.md` (subido por el profesor)
-  - `Main.java`(subido por el alumno)
-  - `Persona.java` (subido por el alumno)
-  - etc.
-
-- Puedes modificar los archivos `.md` de teoría y de los enunciados, por si deseas añadir apuntes. Solo se corregirán los archivos `.java`
-
----
-
-¡Mucho ánimo con este trimestre! 💻
+¡Mucho ánimo con este bloque! 💻
