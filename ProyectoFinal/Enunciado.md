@@ -34,6 +34,3 @@ Debes crear un sistema que permita realizar reservas de habitaciones en un hotel
   - DateTimeParseException (si introducen una fecha mal)
   - ConflictoReservaException (si ya hay una reserva para esa habitación y fechas)
   - Cualquier otra excepción de entrada (InputMismatchException, etc.)
-
-**⚠️ Reglas para el conflicto de fechas:**
-Una reserva entra en conflicto con otra si las fechas se solapan, es decir, si hay algún día en común.
