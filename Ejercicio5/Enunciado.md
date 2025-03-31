@@ -7,5 +7,5 @@ Vamos a crear una versión dinámica del clásico programa de Java que permite a
 - Salir del programa.
 
 Detalles:
-- La estructura utilizada debe ser dinámica.
-- Controla posibles errores, como eliminar una posición no válida o ingresar datos incorrectos (IndexOutOfBoundsException, InputMismatchException, etc.).
+- La estructura utilizada debe ser dinámica, de tipo `Lista`.
+- Controla posibles errores, como eliminar una posición no válida o ingresar datos incorrectos (`IndexOutOfBoundsException`, `InputMismatchException`, etc.).
