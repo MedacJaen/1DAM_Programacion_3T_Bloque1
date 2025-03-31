@@ -8,12 +8,10 @@ public class Ejercicio0_Prueba {
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        
-        int[] numeros = {5,2,6};
-        
-        System.out.println("Que numero quieres ver?");   
-        
+
         try {
+            int[] numeros = {5,2,6};
+            System.out.println("Que numero quieres ver?"); 
             int num1 = Integer.parseInt( sc.nextLine() );
             System.out.println(numeros[num1]);
         
