@@ -9,7 +9,7 @@ Y los métodos:
 - retirar(double cantidad)
 - consultarSaldo()
 
-El método retirar debe lanzar una excepción personalizada (SaldoInsuficienteException) si se intenta retirar más dinero del disponible.
+El método retirar debe lanzar una excepción personalizada (`SaldoInsuficienteException`) si se intenta retirar más dinero del disponible. Se debe controlar también la posibilidad de que se introduzcan caracteres no numéricos (`NumberFormatException`). Por útlimo, puedes lanzar manualmente una excepción (`IllegalArgumentException`) si el saldo a ingresar o a retirar es menor que cero.
 
 En el programa principal (main):
 - Crea una cuenta con saldo inicial de cero.
