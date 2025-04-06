@@ -9,6 +9,13 @@ Este bloque de programación avanzada incluye:
 
 ### Tema 13: Excepciones en Java
 
+Los programas pueden fallar en tiempo de ejecución, es decir, fallos que no ha detectado el IDE, si no que descubrimos mientras se utiliza el programa. Estos fallos incluso pueden darse algunas veces y otras no, por lo que son difíciles de detectar. Son lo que se llaman excepciones, y su manejo permitirá que el programa sepa cómo gestionarlas sin cerrarse de forma abrupta.
+
+**¿Error o excepción?**  
+En Java, diferenciamos entre un `Error` y una `Exception`:
+- Los `Error` representan fallos graves del sistema y **no deben capturarse**. Digamos que no tienen solución (fallos de memoria, por ejemplo).
+- Las `Exception` sí pueden gestionarse y evitar que rompan el programa, y son el foco de este tema.
+
 #### ¿Por qué son importantes las excepciones?
 Durante la ejecución de un programa pueden ocurrir errores inesperados: división por cero, acceso a una posición inexistente de un array, archivo no encontrado, entre otros. Aunque podríamos intentar prevenir algunos de estos errores con condicionales `if`, este enfoque no es escalable ni efectivo, porque:
 
@@ -18,7 +25,12 @@ Durante la ejecución de un programa pueden ocurrir errores inesperados: divisi�
 
 Con las **excepciones**, el tratamiento de errores se gestiona mediante una estructura independiente (`try-catch`), lo que permite **separar claramente la lógica principal del programa del código que maneja los errores**.
 
-#### Manejo de excepciones: `try-catch-finally`
+El lenguaje Java contempla múltipes excepciones (creadas internamente en un sistema de herencia), y al que podemos agregarle las que necesitemos.
+
+![image](https://github.com/user-attachments/assets/938b8fae-e127-47f3-9dab-d24e455426ea)
+
+
+#### 1. Manejo básico de excepciones: `try-catch-finally`
 
 ```java
 try {
@@ -30,11 +42,22 @@ try {
 }
 ```
 
-El bloque `try` contiene la lógica principal. Si ocurre una excepción, el flujo se desvía al `catch`, donde se trata el error. El bloque `finally` se ejecuta siempre, tanto si ha ocurrido la excepción como si no (por ejemplo, para cerrar archivos o liberar recursos).
+El bloque `try` contiene la lógica principal (el código que podría generar una excepción). Si ocurre una excepción, el flujo se desvía al `catch`, donde se trata el error sin que se rompa el programa. El bloque `finally` se ejecuta siempre, tanto si ha ocurrido la excepción como si no.
 
-#### Lanzar excepciones manualmente con `throw`
+En muchas ocasiones, las excepciones 'saltan' automáticamente (Java detecta el error y lanza la excepción), pero nosotros también podemos lanzarlas intencionadamente mediante la palabra `throw`.
 
-A veces queremos propagar el error en lugar de manejarlo directamente, especialmente si la decisión de qué hacer corresponde a un nivel superior de la aplicación. En ese caso, usamos `throw` para lanzar la excepción:
+```java
+    if (b == 0) {
+        throw new ArithmeticException("No se puede dividir por cero");
+    }
+    System.out.println(a / b);
+```
+
+#### 2. Dónde gestionar la excepción.
+
+En Programación Orientada a Objetos, cuando trabajamos con múltiples clases y métodos, a veces queremos propagar el error en lugar de manejarlo directamente, especialmente si la decisión de qué hacer corresponde a un nivel superior de la aplicación. Esto es útil cuando la clase que lanza el error no tiene contexto suficiente para resolverlo, pero quien llama al método sí.
+
+En ese caso, usamos `throws` en la firma del método para lanzar la excepción, por lo que no se usará un `try-catch` en el método, si no en el lugar donde se haya llamado al método (por ejemplo, en el main):
 
 ```java
 public void dividir(int a, int b) throws ArithmeticException {
@@ -45,25 +68,27 @@ public void dividir(int a, int b) throws ArithmeticException {
 }
 ```
 
-#### Cuándo usar `try-catch` y cuándo usar `throw`
-
 - **`try-catch`**: Se utiliza cuando podemos **gestionar la excepción localmente**, es decir, tenemos una solución o mensaje para el error en ese punto del programa. Ej: volver a pedir datos al usuario, registrar un error, usar un valor alternativo.
 
-- **`throw`**: Se utiliza cuando **no podemos resolver el problema localmente**, y es mejor que lo gestione otro nivel del programa (por ejemplo, otra clase que llamó al método que da el error). Se lanza una excepción para que el error se propague.
+- **`throw`**: Se utiliza cuando **no podemos resolver el problema localmente**, y es mejor que lo gestione otro nivel del programa (por ejemplo, otra clase que llamó al método que da el error). Usamos `throw` para lanzar la excepción y `throws` en la firma del método para indicar que esa excepción será gestionada en otro punto del programa mediante try-catch.
 
-#### Principales tipos de excepciones en Java
+#### 3. Principales tipos de excepciones en Java
+- `NumberFormatException`: Errores en conversiones de números.
 - `ArithmeticException`: Errores aritméticos, como división por cero.
 - `NullPointerException`: Se intenta acceder a una referencia nula.
 - `ArrayIndexOutOfBoundsException`: Acceso fuera de los límites de un array.
 - `IllegalArgumentException`: Argumento inválido pasado a un método.
-- `IOException`: Problemas de entrada/salida (archivos).
-- `FileNotFoundException`: Archivo no encontrado.
+- `IOException`: Problemas de entrada/salida de información (lo veremos en los próximos temas).
+- `FileNotFoundException`: Archivo no encontrado (lo veremos en los próximos temas).
+- `SocketException`: problemas de conexión (lo estudiaremos en 2º).
 
-#### Excepciones personalizadas: ¿cuándo crearlas?
+#### 4. Excepciones personalizadas: ¿cuándo crearlas?
 Aunque lo más habitual es usar las excepciones de Java, podemos crear nuestras propias excepciones cuando:
 - Queremos dar **información específica** sobre errores en nuestra lógica particular.
 - Necesitamos que el código que vemos indique exactamente qué ha fallado.
 - Buscamos un tratamiento uniforme de errores definidos por nosotros.
+
+Para ello, debemos crear una clase que herede de Exception y llame a su constructor. Una vez creada dicha clase, podremos lanzar nuestras propias excepciones.
 
 ```java
 public class EdadInvalidaException extends Exception {
