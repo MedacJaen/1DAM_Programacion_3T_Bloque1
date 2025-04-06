@@ -176,7 +176,7 @@ ArrayList<Integer> lista = new ArrayList<>();
 ```
 Java cambia auntomáticamente el tipo (por ejemplo, de `int` a `Integer`) sin que tengamos que hacer nada.
 
-##### `ArrayList`
+#### ArrayList
 Similar a un array (también es una lista), pero dinámica (no tiene un tamaño establecido previamente), que mantiene sus elementos ordenados y accesibles por índice:
 
 ```java
@@ -191,12 +191,12 @@ System.out.println(nombres.get(0)); // Ana
 - Métodos comunes: `add()`, `get()`, `remove()`, `contains()`, `size()`.
 - Permite duplicados y conserva el orden de inserción.
 
-**Ideal para:**
+Ideal para:
 - Listados ordenados de cualquier tipo de dato.
 - Especialmente si necesitamos recorrer elementos en orden o acceder por índice.
 - Ejemplos de uso: listas de la compra, notas de exámenes, listas de tareas, etc.
 
-##### `HashMap`
+#### HashMap
 Estructura que guarda los datos en pares de datos clave-valor (es decir, por parejas de datos, no de uno en uno). Las claves (primer dato) son únicas y no pueden repetirse. Los elementos aquí no están ordenados (no tienen índice):
 
 ```java
@@ -211,8 +211,23 @@ System.out.println(edades.get("Ana")); // 20
 - Métodos comunes: `put()`, `get()`, `remove()`, `containsKey()`, `keySet()`, `values()`
 - Muy rápido para acceso por clave.
 
-**Ideal para:**
+Ideal para:
 - Asociar valores a claves y hacer búsquedas rápidas por identificador.
 - Ejemplos de uso: agenda de contactos (nombre-teléfono), usuarios y contraseñas, inventario en una tienda (producto-cantidad), diccionario (palabra en español - palabra en inglés), etc.
 
----
+#### Iterador
+
+Un `Iterator` es un objeto que permite recorrer una colección sin usar índices. Es útil especialmente cuando la colección no tiene índices (`Set`, `Map`) o si queremos realizar algunas acciones mientras recorremos los elementos (como eliminarlos) de forma segura.
+
+```java
+ArrayList<String> tareas = new ArrayList<>();
+tareas.add("Estudiar");
+tareas.add("Leer");
+
+Iterator<String> it = tareas.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+```
+
+Normalmente usamos bucles `for`, pero el `Iterator` es necesario en ciertos casos más avanzados.
