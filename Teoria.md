@@ -131,24 +131,50 @@ Un **punto de ruptura** es una marca que se coloca en una línea de código para
 ### Tema 16: Introducción a las Estructuras de Datos
 
 #### ¿Qué es una estructura de datos?
-Una estructura de datos es una forma de **organizar y almacenar datos** de manera que sea eficiente acceder, buscar, insertar, modificar o eliminar elementos.
-<br>
+Una estructura de datos es una forma de **organizar y almacenar datos** de manera que sea eficiente acceder, buscar, insertar, modificar o eliminar elementos. Ya hemos visto en temas anteriores que si queremos guardar múltiples datos es más eficiente usar un array que muchas variables. El array es la estructura de datos más básica, pero hay otras muchas interesantes según las necesidades del programa.
 
-#### Ventajas frente a arrays tradicionales:
-- Tamaño dinámico (no hay que definirlo al inicio).
-- Mayor flexibilidad para tipos complejos.
-- Operaciones integradas como búsqueda, ordenación o eliminación.
+En Java, la mayoría de estructuras de datos están desarrolladas implementando una interfaz llamada `Collection`, motivo por el que se le llaman **colecciones**.
+<br>
 
 #### Clasificación de las estructuras de datos en Java
 
-| Tipo de colección | Descripción |
-|-------------------|-------------|
-| **Listas** `List` | Permiten elementos duplicados y mantienen el orden de inserción. Se accede por índice. Ej: `ArrayList`, `LinkedList`. Muy útiles cuando necesitas recorrer datos en orden o acceder por posición. |
-| **Conjuntos** `Set` | No permiten duplicados. Muy eficientes para comprobar existencia de elementos. Ej: `HashSet`, `TreeSet`. Ideal para listas de elementos únicos. |
-| **Colas** `Queue`  | Acceden a los elementos en orden de llegada (FIFO). Se usan para tareas por turnos, colas de procesos, etc. Ej: `LinkedList`, `PriorityQueue`. |
-| **Mapas** `Map`    | Almacenan pares clave-valor. Las claves son únicas. Muy útiles para relacionar datos (por ejemplo, DNI - Persona). Ej: `HashMap`, `TreeMap`. |
+| Tipo de estructuras de datos | Descripción |
+|------------------------------|-------------|
+| **Listas** `List` | Listas de datos ordenados. Ej: `ArrayList`, `LinkedList`. Muy útiles cuando necesitas recorrer datos en orden o acceder por posición. |
+| **Conjuntos** `Set` | Listas de datos ordenados que no permiten duplicados. Ej: `HashSet`, `TreeSet`. Ideal para listas de elementos únicos. |
+| **Colas** `Queue`  | Listas de datos que acceden a los elementos en orden de llegada (FIFO). Se usan para tareas por turnos, colas de procesos, etc. Ej: `LinkedList`, `PriorityQueue`. |
+| **Mapas** `Map`    | Estructuras que almacenan pares clave-valor. Muy útiles para relacionar datos (por ejemplo, DNI - Persona). Ej: `HashMap`, `TreeMap`. |
 
-#### Profundización: `ArrayList` y `HashMap`
+*Existen otras estructuras más complejas, como árboles o grafos, que no son objeto de estudio en esta asignatura.
+
+#### Tipos genéricos y clases envolventes (Integer, Float, etc.)
+
+Las colecciones de Java (como ArrayList, HashMap, HashSet, etc.) están diseñadas para trabajar con objetos, no con tipos primitivos como int, double, boolean, etc.
+
+Es decir, no podemos hacer esto:
+
+```java
+ArrayList<int> lista = new ArrayList<>(); // Esto da error
+```
+Java necesita que trabajemos en sus colecciones con clases que envuelvan (wrap) a los tipos primitivos. Para eso existen las clases envolventes (wrapper classes), que convierten a los datos en objetos y cuentan con métodos que nos pueden ayudar a trabajar con ellos, como `compareTo()`, `parseInt()`, etc. Cada tipo de dato en Java tiene su correspondiente clase envolvente:
+
+| Tipo primitivo |	Clase envolvente |
+|----------------|-------------------|
+| `int` | `Integer` |
+| `double` | `Double` |
+| `boolean` | `Boolean` |
+| `char` |	`Character` |
+| `float` |	`Float` |
+| `long` |	`Long` |
+| `byte` |	`Byte` |
+| `short` |	`Short` |
+
+Entonces, si queremos crear una colección de números enteros, lo correcto sería:
+
+```java
+ArrayList<Integer> lista = new ArrayList<>();
+```
+Java cambia auntomáticamente el tipo (por ejemplo, de `int` a `Integer`) sin que tengamos que hacer nada.
 
 ##### `ArrayList`
 Similar a un array (también es una lista), pero dinámica (no tiene un tamaño establecido previamente), que mantiene sus elementos ordenados y accesibles por índice:
@@ -189,15 +215,4 @@ System.out.println(edades.get("Ana")); // 20
 - Asociar valores a claves y hacer búsquedas rápidas por identificador.
 - Ejemplos de uso: agenda de contactos (nombre-teléfono), usuarios y contraseñas, inventario en una tienda (producto-cantidad), diccionario (palabra en español - palabra en inglés), etc.
 
-##### Comparativa rápida
-
-| Característica       | `ArrayList`             | `HashMap`                     |
-|----------------------|-------------------------|-------------------------------|
-| Acceso/búsqueda      | Por índice              | Por clave                     |
-| Permite duplicados   | Sí                      | No en claves, sí en valores   |
-| Orden                | Conserva el orden       | No garantiza orden            |
-| Uso típico           | Listas ordenadas        | Búsqueda por clave            |
-
 ---
-
-
