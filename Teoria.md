@@ -188,8 +188,8 @@ nombres.add("Luis");
 System.out.println(nombres.get(0)); // Ana
 ```
 
-- Métodos comunes: `add()`, `get()`, `remove()`, `contains()`, `size()`.
-- Permite duplicados y conserva el orden de inserción.
+- Métodos comunes de ArrayList: `add()`, `get()`, `remove()`, `contains()`, `size()`, `set(), `clear()`, `indexOf()`, entre otros.
+- Este tipo de lista permite duplicados y conserva el orden de inserción.
 
 Ideal para:
 - Listados ordenados de cualquier tipo de dato.
