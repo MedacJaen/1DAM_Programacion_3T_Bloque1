@@ -18,7 +18,7 @@ public class CalculoMedia {
         for (int i = 0; i <= notas.length; i++) {
             System.out.print("Nota " + (i + 1) + ": ");
             notas[i] = sc.nextInt();
-            suma =+ notas[i];  // ← ¿Qué pasa aquí?
+            suma =+ notas[i];
         }
 
         double media = suma / notas.length;
