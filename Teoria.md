@@ -210,6 +210,7 @@ System.out.println(edades.get("Ana")); // 20
 
 - Métodos comunes: `put()`, `get()`, `remove()`, `containsKey()`, `containsValue()`, `keySet()`, `clear()`, `size()`, entre otros.
 - Muy rápido para acceso por clave.
+- Si intentamos añadir dos valores con la misma clave, el primero se sobreescribe con el segundo, pero no se guardan ambas porque esta estructura no permite duplicados.
 
 Ideal para:
 - Asociar valores a claves y hacer búsquedas rápidas por identificador.
@@ -217,17 +218,24 @@ Ideal para:
 
 #### Iterador
 
-Un `Iterator` es un objeto que permite recorrer una colección sin usar índices. Es útil especialmente cuando la colección no tiene índices (`Set`, `Map`) o si queremos realizar algunas acciones mientras recorremos los elementos (como eliminarlos) de forma segura.
+Un `Iterator` es un objeto que permite recorrer una colección sin usar índices. Es especialmente útil cuando:
+
+- La colección **no tiene índices**, como ocurre con `Set` o `Map`.
+- Necesitamos una forma genérica de recorrer cualquier colección.
+
+Ejemplo de `Iterador` para recorrer un `HashMap`:
 
 ```java
-ArrayList<String> tareas = new ArrayList<>();
-tareas.add("Estudiar");
-tareas.add("Leer");
+HashMap<String, Integer> edades = new HashMap<>();
+edades.put("Ana", 25);
+edades.put("Luis", 30);
 
-Iterator<String> it = tareas.iterator();
+Iterator<Map.Entry<String, Integer>> it = edades.entrySet().iterator();
+
 while (it.hasNext()) {
-    System.out.println(it.next());
+    Map.Entry<String, Integer> entrada = it.next();
+    System.out.println(entrada.getKey() + ": " + entrada.getValue());
 }
 ```
 
-Normalmente usamos bucles `for`, pero el `Iterator` es necesario en ciertos casos más avanzados.
+Normalmente utilizaremos bucles `for` normales para recorrer una estructura, como un `Array` o un `ArrayList`, pero los `HashMap` no tienen índice, por lo que para recorrerlos necesitamos usar otros métodos, como un `Iterator`.
