@@ -208,7 +208,7 @@ edades.put("Luis", 25);
 System.out.println(edades.get("Ana")); // 20
 ```
 
-- Métodos comunes: `put()`, `get()`, `remove()`, `containsKey()`, `keySet()`, `values()`
+- Métodos comunes: `put()`, `get()`, `remove()`, `containsKey()`, `containsValue()`, `keySet()`, `clear()`, `size()`, entre otros.
 - Muy rápido para acceso por clave.
 
 Ideal para:
